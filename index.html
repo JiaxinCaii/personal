@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Jiaxin Cai's Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -132,9 +132,11 @@
             margin-top: 2rem;
         }
 
-        .skill-icon {
-            font-size: 2.5rem;
-            color: var(--accent-color);
+        .skill {
+            background-color: var(--secondary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 1rem;
         }
 
         /* Projects Section */
@@ -160,12 +162,6 @@
 
         .project-card:hover {
             transform: translateY(-10px);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
         }
 
         .project-info {
@@ -216,22 +212,12 @@
             padding: 2rem;
             background-color: var(--secondary-color);
         }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate {
-            animation: fadeIn 1s ease forwards;
-        }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">Portfolio</div>
+            <div class="logo">Jiaxin Cai</div>
             <div class="nav-links">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
@@ -243,21 +229,26 @@
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Hi, I'm [Your Name]</h1>
-            <p>Full Stack Developer</p>
+            <h1>Hi, I'm Jiaxin Cai</h1>
+            <p>A Business Analyst</p>
             <button class="cta-button">View My Work</button>
         </div>
     </section>
 
     <section id="about" class="about">
         <div class="about-image">
-            <img src="your-photo.jpg" alt="Profile Picture">
+            <img src="images/648aa039ceccd70c94f52748c58892e.jpg" alt="Jiaxin Cai">
         </div>
         <div class="about-content">
             <h2>About Me</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <ul>
+                <li>I am a post-graduate student at UCL major in Business Analysis.</li>
+                <li>I finished my bachelor degree of Finance and Economics Specialist with focus in Data Science at University of Toronto.</li>
+            </ul>
             <div class="skills">
-                <!-- Add skill icons here -->
+                <div class="skill">Python</div>
+                <div class="skill">R</div>
+                <div class="skill">Tableau</div>
             </div>
         </div>
     </section>
@@ -265,7 +256,12 @@
     <section id="projects" class="projects">
         <h2>My Projects</h2>
         <div class="projects-grid">
-            <!-- Project cards will be added here -->
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Crime Patterns Across Chicago's Community Areas</h3>
+                    <p>Analyzed crime data to uncover patterns and trends across various community areas in Chicago.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -279,41 +275,14 @@
             <button type="submit" class="cta-button">Send Message</button>
         </form>
         <div class="social-links">
-            <!-- Add social media links here -->
+            <a href="mailto:jiaxin.cai.24@ucl.uk.ac" class="social-icon">Email</a>
+            <a href="tel:+447775074642" class="social-icon">Phone</a>
+            <a href="https://linkedin.com/in/jiaxin-cai" class="social-icon">LinkedIn</a>
         </div>
     </section>
 
     <footer class="footer">
-        <p>&copy; 2024 [Your Name]. All rights reserved.</p>
+        <p>&copy; 2024 Jiaxin Cai. All rights reserved.</p>
     </footer>
-
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Animation on scroll
-        const observerOptions = {
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
-    </script>
 </body>
 </html>
