@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jiaxin Cai's Portfolio</title>
+    <title>Jiaxin Cai - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -117,11 +117,14 @@
             width: 100%;
             border-radius: 10px;
             overflow: hidden;
+            display: flex;
+            justify-content: center;
         }
 
         .about-image img {
-            width: 100%;
+            width: 60%;
             height: auto;
+            border-radius: 50%;
             transition: var(--transition);
         }
 
@@ -132,11 +135,9 @@
             margin-top: 2rem;
         }
 
-        .skill {
-            background-color: var(--secondary-color);
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            font-size: 1rem;
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
         }
 
         /* Projects Section */
@@ -162,6 +163,12 @@
 
         .project-card:hover {
             transform: translateY(-10px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
         }
 
         .project-info {
@@ -212,12 +219,22 @@
             padding: 2rem;
             background-color: var(--secondary-color);
         }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate {
+            animation: fadeIn 1s ease forwards;
+        }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">Jiaxin Cai</div>
+            <div class="logo">Portfolio</div>
             <div class="nav-links">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
@@ -231,13 +248,13 @@
         <div class="hero-content">
             <h1>Hi, I'm Jiaxin Cai</h1>
             <p>A Business Analyst</p>
-            <button class="cta-button">View My Work</button>
+            <a href="JiaxinCai_UCL_Resume.pdf" class="cta-button">View My Resume</a>
         </div>
     </section>
 
     <section id="about" class="about">
         <div class="about-image">
-            <img src="images/648aa039ceccd70c94f52748c58892e.jpg" alt="Jiaxin Cai">
+            <img src="images/648aa039ceccd70c94f52748c58892e.jpg" alt="Profile Picture">
         </div>
         <div class="about-content">
             <h2>About Me</h2>
@@ -246,9 +263,9 @@
                 <li>I finished my bachelor degree of Finance and Economics Specialist with focus in Data Science at University of Toronto.</li>
             </ul>
             <div class="skills">
-                <div class="skill">Python</div>
-                <div class="skill">R</div>
-                <div class="skill">Tableau</div>
+                <span>Python</span>
+                <span>R</span>
+                <span>Tableau</span>
             </div>
         </div>
     </section>
@@ -259,7 +276,6 @@
             <div class="project-card">
                 <div class="project-info">
                     <h3>Crime Patterns Across Chicago's Community Areas</h3>
-                    <p>Analyzed crime data to uncover patterns and trends across various community areas in Chicago.</p>
                 </div>
             </div>
         </div>
@@ -267,22 +283,46 @@
 
     <section id="contact" class="contact">
         <h2>Get In Touch</h2>
-        <form class="contact-form">
+        <form class="contact-form" action="mailto:jiaxin.cai.24@ucl.uk.ac" method="post" enctype="text/plain">
             <input type="text" class="form-input" placeholder="Name" required>
             <input type="email" class="form-input" placeholder="Email" required>
             <input type="text" class="form-input" placeholder="Subject" required>
             <textarea class="form-input" placeholder="Message" rows="5" required></textarea>
             <button type="submit" class="cta-button">Send Message</button>
         </form>
-        <div class="social-links">
-            <a href="mailto:jiaxin.cai.24@ucl.uk.ac" class="social-icon">Email</a>
-            <a href="tel:+447775074642" class="social-icon">Phone</a>
-            <a href="https://linkedin.com/in/jiaxin-cai" class="social-icon">LinkedIn</a>
-        </div>
     </section>
 
     <footer class="footer">
         <p>&copy; 2024 Jiaxin Cai. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
