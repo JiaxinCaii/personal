@@ -59,8 +59,8 @@
 
         .sidebar-header h3 {
             color: var(--accent-color);
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
         }
 
         .nav-menu {
@@ -104,8 +104,10 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
+            justify-content: center;
             padding: 2rem;
-            background-color: var(--secondary-color);
+            background-color: var(--primary-color);
+            text-align: center;
         }
 
         .home-content {
@@ -113,37 +115,74 @@
         }
 
         .welcome-text {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
-            color: var(--accent-color);
+            color: var(--text-color);
         }
 
         .typing-text {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 2rem;
+            color: var(--accent-color);
+            min-height: 60px;
         }
 
         .bullet-points {
             margin-bottom: 2rem;
+            text-align: left;
+            font-size: 1.1rem;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
+            justify-content: center;
         }
 
         .cta-button {
-            padding: 0.75rem 1.5rem;
+            padding: 1rem 2rem;
             border: 2px solid var(--accent-color);
             border-radius: 5px;
             color: var(--accent-color);
             text-decoration: none;
             transition: var(--transition);
+            font-weight: 600;
         }
 
         .cta-button:hover {
             background-color: var(--accent-color);
             color: var(--primary-color);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(100, 255, 218, 0.1);
+            border-radius: 50%;
         }
 
         /* Responsive Design */
@@ -173,6 +212,10 @@
                 font-size: 1.5rem;
                 cursor: pointer;
             }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -185,7 +228,6 @@
         <div class="sidebar-header">
             <img src="images/648aa039ceccd70c94f52748c58892e.jpg" alt="Jiaxin Cai" class="avatar">
             <h3>Jiaxin Cai</h3>
-            <p>Business Analyst</p>
         </div>
         <ul class="nav-menu">
             <li class="nav-item">
@@ -243,7 +285,7 @@
         <section id="home" class="home">
             <div class="home-content">
                 <h1 class="welcome-text">Hi, I'm Jiaxin Cai</h1>
-                <div class="typing-text">A Business Analyst</div>
+                <div class="typing-text"></div>
                 <div class="bullet-points">
                     <p>• I am a post-graduate student at UCL majoring in Business Analytics.</p>
                     <p>• I completed my bachelor's degree in Finance and Economics Specialist with a focus on Data Science at the University of Toronto.</p>
@@ -255,7 +297,26 @@
             </div>
         </section>
 
-        <!-- Other sections will be added here -->
+        <section id="contact">
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+44-777-507-4642</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>jiaxin.cai.24@ucl.ac.uk</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <span>www.linkedin.com/in/jiaxin-cai</span>
+                </div>
+            </div>
+        </section>
     </main>
 
     <script>
@@ -312,11 +373,34 @@
         // Typing animation
         const text = "A Business Analyst";
         let index = 0;
+        let isDeleting = false;
+        let typingDelay = 100;
+        let deletingDelay = 50;
+        let pauseDelay = 2000;
+
         function typeText() {
-            document.querySelector('.typing-text').textContent = text.slice(0, index);
-            index = (index + 1) % (text.length + 1);
-            setTimeout(typeText, index === text.length ? 2000 : 100);
+            const typingElement = document.querySelector('.typing-text');
+            const currentText = typingElement.textContent;
+            
+            if (!isDeleting && index <= text.length) {
+                typingElement.textContent = text.slice(0, index);
+                index++;
+                setTimeout(typeText, typingDelay);
+            } else if (!isDeleting && index > text.length) {
+                setTimeout(() => {
+                    isDeleting = true;
+                    typeText();
+                }, pauseDelay);
+            } else if (isDeleting && index > 0) {
+                typingElement.textContent = text.slice(0, index - 1);
+                index--;
+                setTimeout(typeText, deletingDelay);
+            } else if (isDeleting && index === 0) {
+                isDeleting = false;
+                setTimeout(typeText, typingDelay);
+            }
         }
+
         typeText();
     </script>
 </body>
