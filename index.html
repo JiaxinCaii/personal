@@ -37,7 +37,7 @@
             top: 0;
             width: var(--sidebar-width);
             height: 100vh;
-            background-color: rgba(42, 42, 42, 0.95);
+            background-color: var(--primary-color);
             padding: 2rem 0;
             z-index: 1000;
             border-right: 1px solid rgba(255, 255, 255, 0.1);
@@ -47,6 +47,14 @@
             text-align: center;
             padding: 0 1.5rem 2rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            border: 3px solid var(--accent-color);
         }
 
         .sidebar-header h3 {
@@ -91,6 +99,53 @@
             color: var(--accent-color);
         }
 
+        /* Home Section */
+        .home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+            background-color: var(--secondary-color);
+        }
+
+        .home-content {
+            max-width: 800px;
+        }
+
+        .welcome-text {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .typing-text {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .bullet-points {
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .cta-button {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--accent-color);
+            border-radius: 5px;
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
         /* Responsive Design */
         @media screen and (max-width: 768px) {
             body {
@@ -128,6 +183,7 @@
 
     <nav class="sidebar">
         <div class="sidebar-header">
+            <img src="images/648aa039ceccd70c94f52748c58892e.jpg" alt="Jiaxin Cai" class="avatar">
             <h3>Jiaxin Cai</h3>
             <p>Business Analyst</p>
         </div>
@@ -175,7 +231,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="JiaxinCai_UCL_Resume.pdf" class="nav-link">
+                <a href="JiaxinCai_UCL_Resume.pdf" class="nav-link" target="_blank">
                     <i class="fas fa-file-alt"></i>
                     <span>Resume</span>
                 </a>
@@ -183,7 +239,24 @@
         </ul>
     </nav>
 
-    [Rest of your HTML content remains the same...]
+    <main>
+        <section id="home" class="home">
+            <div class="home-content">
+                <h1 class="welcome-text">Hi, I'm Jiaxin Cai</h1>
+                <div class="typing-text">A Business Analyst</div>
+                <div class="bullet-points">
+                    <p>• I am a post-graduate student at UCL majoring in Business Analytics.</p>
+                    <p>• I completed my bachelor's degree in Finance and Economics Specialist with a focus on Data Science at the University of Toronto.</p>
+                </div>
+                <div class="cta-buttons">
+                    <a href="#about" class="cta-button">Read More</a>
+                    <a href="#contact" class="cta-button">Contact Me</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other sections will be added here -->
+    </main>
 
     <script>
         // Smooth scrolling
@@ -235,6 +308,16 @@
         document.querySelectorAll('section').forEach(section => {
             observer.observe(section);
         });
+
+        // Typing animation
+        const text = "A Business Analyst";
+        let index = 0;
+        function typeText() {
+            document.querySelector('.typing-text').textContent = text.slice(0, index);
+            index = (index + 1) % (text.length + 1);
+            setTimeout(typeText, index === text.length ? 2000 : 100);
+        }
+        typeText();
     </script>
 </body>
 </html>
