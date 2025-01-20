@@ -554,8 +554,7 @@
                 <h1 class="welcome-text">Hi, I'm Jiaxin Cai</h1>
                 <div class="typing-text"></div>
                 <div class="bullet-points">
-                    <p>• I am a post-graduate student at UCL majoring in Business Analytics.</p>
-                    <p>• I completed my bachelor's degree in Finance and Economics Specialist with a focus on Data Science at the University of Toronto.</p>
+                    <p>Self-driven, analytical thinker with a passion for leveraging data science and finance to solve complex real-world problems. </p>
                 </div>
                 <div class="cta-buttons">
                     <a href="#about" class="cta-button">Read More</a>
@@ -603,7 +602,7 @@
             <div class="experience-card">
                 <h3 class="company-name"><a href="https://www.blue-lotus.cn/index.php?l=en" target="_blank">Blue Lotus Capital</a></h3>
                 <h4 class="job-title">Research Assistant</h4>
-                <p class="job-details">2022 – 2023</p>
+                <p class="job-details">May 2022 – August 2023 | Shanghai, China</p>
                 <ul class="experience-points">
                     <li>Conducted financial analysis on Chinese companies across multiple sectors, creating a standardized investment screening process using the Wind platform.</li>
                     <li>Monitored a 50-stock portfolio and collaborated with financial analysts, providing multilingual document translation and critical market insights.</li>
@@ -615,7 +614,7 @@
             <div class="experience-card">
                 <h3 class="company-name"><a href="https://www.zszhcpa.cn/en/" target="_blank">Mazars</a></h3>
                 <h4 class="job-title">Audit Assistant</h4>
-                <p class="job-details">2021 – 2022</p>
+                <p class="job-details">May 2021 – August 2022 | Wuhan, China</p>
                 <ul class="experience-points">
                     <li>Conducted audits for IPO operations (> $10M enterprise value) and semiannual reports (> $30M enterprise value), identifying financial discrepancies to enhance accuracy.</li>
                     <li>Managed accounting tasks, ensuring compliance and processing over 50 GAAP-compliant manuscripts.</li>
@@ -648,24 +647,12 @@
                             <p>Python</p>
                         </div>
                         <div class="skill-item">
-                            <i class="fab fa-html5"></i>
-                            <p>HTML5</p>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-css3-alt"></i>
-                            <p>CSS3</p>
+                            <i class="fas fa-code"></i>
+                            <p>R Studio</p>
                         </div>
                         <div class="skill-item">
                             <i class="fas fa-database"></i>
-                            <p>MySQL</p>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-database"></i>
-                            <p>PostgreSQL</p>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-terminal"></i>
-                            <p>Shell Scripting</p>
+                            <p>SQL</p>
                         </div>
                     </div>
                 </div>
@@ -682,14 +669,6 @@
                             <p>Pandas</p>
                         </div>
                         <div class="skill-item">
-                            <i class="fas fa-camera"></i>
-                            <p>OpenCV</p>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-brain"></i>
-                            <p>scikit-learn</p>
-                        </div>
-                        <div class="skill-item">
                             <i class="fas fa-chart-line"></i>
                             <p>Matplotlib</p>
                         </div>
@@ -698,20 +677,9 @@
                             <p>Tableau</p>
                         </div>
                         <div class="skill-item">
-                            <i class="fas fa-calculator"></i>
-                            <p>Stata</p>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-desktop"></i>
-                            <p>Bloomberg</p>
-                        </div>
-                        <div class="skill-item">
                             <i class="fas fa-file-excel"></i>
                             <p>Microsoft Excel</p>
                         </div>
-                        <div class="skill-item">
-                            <i class="fas fa-chart-bar"></i>
-                            <p>Capital IQ</p>
                         </div>
                     </div>
                 </div>
@@ -724,8 +692,9 @@
                 <div class="education-card">
                     <h3 class="institution-name">University College London</h3>
                     <p class="institution-location">London, United Kingdom</p>
-                    <h4 class="degree">Master's in Business Analytics</h4>
+                    <br>
                     <p class="duration">Sep 2024 – Sep 2025 (Expected)</p>
+                    <h4 class="degree">Master's in Business Analytics</h4>
                     <p class="gpa">GPA: Pending/100</p>
                     <ul class="education-details">
                         <li>Business Strategy</li>
@@ -738,8 +707,9 @@
                 <div class="education-card">
                     <h3 class="institution-name">University of Toronto</h3>
                     <p class="institution-location">Toronto, Ontario</p>
-                    <h4 class="degree">Bachelor's in Finance and Economy Specialist (Rotman Commerce)</h4>
+                    <br>
                     <p class="duration">Sep 2020 – Jun 2024</p>
+                    <h4 class="degree">Bachelor's in Finance and Economy Specialist (Rotman Commerce)</h4>
                     <p class="gpa">GPA: 3.45/4.00 (Distinction)</p>
                     <ul class="education-details">
                         <li>Forecasting Econometrics</li>
@@ -825,8 +795,9 @@
         });
 
         // Typing animation
-        const text = "A Business Analyst";
-        let index = 0;
+        const texts = ["A Business Analyst", "A Pythonist", "A Fast Learner"];
+        let textIndex = 0;
+        let charIndex = 0;
         let isDeleting = false;
         let typingDelay = 100;
         let deletingDelay = 50;
@@ -834,23 +805,24 @@
 
         function typeText() {
             const typingElement = document.querySelector('.typing-text');
-            const currentText = typingElement.textContent;
+            const currentText = texts[textIndex];
             
-            if (!isDeleting && index <= text.length) {
-                typingElement.textContent = text.slice(0, index);
-                index++;
+            if (!isDeleting && charIndex <= currentText.length) {
+                typingElement.textContent = currentText.slice(0, charIndex);
+                charIndex++;
                 setTimeout(typeText, typingDelay);
-            } else if (!isDeleting && index > text.length) {
+            } else if (!isDeleting && charIndex > currentText.length) {
                 setTimeout(() => {
                     isDeleting = true;
                     typeText();
                 }, pauseDelay);
-            } else if (isDeleting && index > 0) {
-                typingElement.textContent = text.slice(0, index - 1);
-                index--;
+            } else if (isDeleting && charIndex > 0) {
+                typingElement.textContent = currentText.slice(0, charIndex - 1);
+                charIndex--;
                 setTimeout(typeText, deletingDelay);
-            } else if (isDeleting && index === 0) {
+            } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
                 setTimeout(typeText, typingDelay);
             }
         }
