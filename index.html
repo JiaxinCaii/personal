@@ -9,11 +9,11 @@
     <style>
         :root {
             --primary-color: #2a2a2a;
-            --secondary-color: #4a4a4a {
-            --accent-color: #64ffda {
-            --text-color: #ffffff {
-            --transition: all 0.3s ease {
-            --sidebar-width: 250px {
+            --secondary-color: #4a4a4a;
+            --accent-color: #64ffda;
+            --text-color: #ffffff;
+            --transition: all 0.3s ease;
+            --sidebar-width: 250px;
         }
 
         * {
@@ -376,17 +376,11 @@
         }
 
         /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 2rem;
-        }
-
         .project-card {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
             padding: 2rem;
+            margin-bottom: 2rem;
             transition: var(--transition);
         }
 
@@ -397,35 +391,26 @@
 
         .project-title {
             font-size: 1.5rem;
+            font-weight: 600;
             color: var(--accent-color);
             margin-bottom: 1rem;
         }
 
         .project-description {
             margin-bottom: 1.5rem;
+            font-size: 1.1rem;
             color: var(--text-color);
-            line-height: 1.6;
         }
 
         .project-tools {
-            background: rgba(100, 255, 218, 0.1);
-            padding: 1rem;
-            border-radius: 5px;
             margin-bottom: 1.5rem;
-        }
-
-        .project-tools h4 {
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
             color: var(--accent-color);
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
         }
 
-        .project-tools p {
-            color: var(--text-color);
-            font-size: 0.9rem;
-        }
-
-        .project-link {
+        .view-pdf-btn {
             display: inline-block;
             padding: 0.8rem 1.5rem;
             background: transparent;
@@ -434,10 +419,9 @@
             text-decoration: none;
             border-radius: 5px;
             transition: var(--transition);
-            font-weight: 500;
         }
 
-        .project-link:hover {
+        .view-pdf-btn:hover {
             background: var(--accent-color);
             color: var(--primary-color);
         }
@@ -630,18 +614,13 @@
 
         <section id="projects">
             <h2 class="section-title">PROJECTS</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3 class="project-title">Economic Disparity and Its Influence on Non-Violent and Violent Crime Patterns Across Chicago's Community Areas</h3>
-                    <p class="project-description">This project investigates the relationship between economic factors such as income disparity and unemployment on crime patterns in Chicago from 2014 to 2018. It uses data visualization, statistical analysis, and machine learning to uncover insights that can guide law enforcement strategies and policy-making.</p>
-                    <div class="project-tools">
-                        <h4>Tools Used:</h4>
-                        <p>Python, Pandas, Matplotlib, Seaborn, GeoPandas, Statsmodels, Sklearn</p>
-                    </div>
-                    <a href="ECO225_Project_Final_Jiaxin.pdf" class="project-link" target="_blank">
-                        View Full PDF
-                    </a>
+            <div class="project-card">
+                <h3 class="project-title">Economic Disparity and Its Influence on Non-Violent and Violent Crime Patterns Across Chicago's Community Areas</h3>
+                <p class="project-description">This project investigates the relationship between economic factors such as income disparity and unemployment on crime patterns in Chicago from 2014 to 2018. It uses data visualization, statistical analysis, and machine learning to uncover insights that can guide law enforcement strategies and policy-making.</p>
+                <div class="project-tools">
+                    Tools Used: Python, Pandas, Matplotlib, Seaborn, GeoPandas, Statsmodels, Sklearn
                 </div>
+                <a href="ECO225_Project_Final_Jiaxin.pdf" class="view-pdf-btn" target="_blank">View Full PDF</a>
             </div>
         </section>
 
@@ -829,13 +808,14 @@
         document.querySelectorAll('section').forEach(section => {
             observer.observe(section);
         });
+
         // Typing animation
         const text = "A Business Analyst";
-        const index = 0;
-        const isDeleting = false;
-        const typingDelay = 100;
-        const deletingDelay = 50;
-        const pauseDelay = 2000;
+        let index = 0;
+        let isDeleting = false;
+        let typingDelay = 100;
+        let deletingDelay = 50;
+        let pauseDelay = 2000;
 
         function typeText() {
             const typingElement = document.querySelector('.typing-text');
