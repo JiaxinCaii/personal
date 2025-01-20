@@ -8,16 +8,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #f8f9fa;
-            --secondary-color: #e9ecef;
-            --accent-color: #4a90e2;
-            --text-color: #2c3e50;
+            --primary-color: #f7f9fc;
+            --secondary-color: #e8eef7;
+            --accent-color: #6c5ce7;
+            --text-color: #2d3436;
             --transition: all 0.3s ease;
             --sidebar-width: 250px;
-            --gradient-start: #4a90e2;
-            --gradient-end: #67b26f;
-            --shadow-color: rgba(0, 0, 0, 0.1);
-            --highlight-color: #fff;
+            --gradient-start: #a8c0ff;
+            --gradient-end: #3f2b96;
+            --shadow-color: rgba(108, 92, 231, 0.1);
+            --highlight-color: #ffffff;
         }
 
         * {
@@ -193,6 +193,12 @@
         }
 
         /* Experience Section */
+        #experience {
+            padding: 0 4rem; /* Added padding on sides */
+            max-width: 1200px; /* Added max-width */
+            margin: 0 auto; /* Center the section */
+        }
+
         .experience-card {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
@@ -257,20 +263,82 @@
             color: var(--accent-color);
         }
 
+        /* Projects Section */
+        #projects {
+            padding: 0 4rem; /* Added padding on sides */
+            max-width: 1200px; /* Added max-width */
+            margin: 0 auto; /* Center the section */
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        .project-tools {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            color: var(--accent-color);
+        }
+
+        .view-pdf-btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+
+        .view-pdf-btn:hover {
+            background: var(--accent-color);
+            color: var(--primary-color);
+        }
+
         /* Skills Grid */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 1.5rem;
             margin-top: 2rem;
         }
 
         .skill-item {
             text-align: center;
-            padding: 1rem;
+            padding: 1.5rem;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 8px;
             transition: var(--transition);
+            aspect-ratio: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .skill-item:hover {
@@ -279,9 +347,14 @@
         }
 
         .skill-item i {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--accent-color);
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-item p {
+            font-size: 1.1rem;
+            margin: 0;
         }
 
         /* Contact Section */
@@ -359,11 +432,9 @@
         }
 
         .duration {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
             color: var(--accent-color);
             font-size: 0.9rem;
+            margin-bottom: 1rem;
         }
 
         .education-details {
@@ -388,57 +459,6 @@
             color: var(--accent-color);
             font-weight: 500;
             margin: 0.5rem 0;
-        }
-
-        /* Projects Section */
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            transition: var(--transition);
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .project-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-        }
-
-        .project-description {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            color: var(--text-color);
-        }
-
-        .project-tools {
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 5px;
-            color: var(--accent-color);
-        }
-
-        .view-pdf-btn {
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
-            background: transparent;
-            border: 2px solid var(--accent-color);
-            color: var(--accent-color);
-            text-decoration: none;
-            border-radius: 5px;
-            transition: var(--transition);
-        }
-
-        .view-pdf-btn:hover {
-            background: var(--accent-color);
-            color: var(--primary-color);
         }
 
         /* Responsive Design */
@@ -645,49 +665,37 @@
         <section id="skills">
             <h2 class="section-title">SKILLS</h2>
             <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Languages and Databases</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <i class="fab fa-python"></i>
-                            <p>Python</p>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-code"></i>
-                            <p>R Studio</p>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-database"></i>
-                            <p>SQL</p>
-                        </div>
-                    </div>
+                <div class="skill-item">
+                    <i class="fab fa-python"></i>
+                    <p>Python</p>
                 </div>
-
-                <div class="skill-category">
-                    <h3>Libraries and Tools</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <i class="fas fa-chart-bar"></i>
-                            <p>NumPy</p>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-table"></i>
-                            <p>Pandas</p>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-chart-line"></i>
-                            <p>Matplotlib</p>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-chart-pie"></i>
-                            <p>Tableau</p>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-file-excel"></i>
-                            <p>Microsoft Excel</p>
-                        </div>
-                        </div>
-                    </div>
+                <div class="skill-item">
+                    <i class="fas fa-code"></i>
+                    <p>R Studio</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-database"></i>
+                    <p>SQL</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <p>NumPy</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-table"></i>
+                    <p>Pandas</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-chart-line"></i>
+                    <p>Matplotlib</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-chart-pie"></i>
+                    <p>Tableau</p>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-file-excel"></i>
+                    <p>Microsoft Excel</p>
                 </div>
             </div>
         </section>
@@ -697,9 +705,8 @@
             <div class="education-grid">
                 <div class="education-card">
                     <h3 class="institution-name">University College London</h3>
-                    <p class="institution-location">London, United Kingdom</p>
-                    <br>
                     <p class="duration">Sep 2024 – Sep 2025 (Expected)</p>
+                    <p class="institution-location">London, United Kingdom</p>
                     <h4 class="degree">Master's in Business Analytics</h4>
                     <p class="gpa">GPA: Pending/100</p>
                     <ul class="education-details">
@@ -712,9 +719,8 @@
 
                 <div class="education-card">
                     <h3 class="institution-name">University of Toronto</h3>
-                    <p class="institution-location">Toronto, Ontario</p>
-                    <br>
                     <p class="duration">Sep 2020 – Jun 2024</p>
+                    <p class="institution-location">Toronto, Ontario</p>
                     <h4 class="degree">Bachelor's in Finance and Economy Specialist (Rotman Commerce)</h4>
                     <p class="gpa">GPA: 3.45/4.00 (Distinction)</p>
                     <ul class="education-details">
