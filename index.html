@@ -310,13 +310,22 @@
         }
 
         /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
         .education-card {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
             padding: 2rem;
-            margin-bottom: 2rem;
             transition: var(--transition);
             position: relative;
+            height: 100%;
         }
 
         .education-card:hover {
@@ -469,6 +478,10 @@
             .duration {
                 position: static;
                 margin-bottom: 1rem;
+            }
+
+            .education-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -707,32 +720,34 @@
 
         <section id="education">
             <h2 class="section-title">EDUCATION</h2>
-            <div class="education-card">
-                <h3 class="institution-name">University College London</h3>
-                <p class="institution-location">London, United Kingdom</p>
-                <h4 class="degree">Master's in Business Analytics</h4>
-                <p class="duration">Sep 2024 – Sep 2025 (Expected)</p>
-                <p class="gpa">GPA: Pending/100</p>
-                <ul class="education-details">
-                    <li>Business Strategy</li>
-                    <li>Data Visualization</li>
-                    <li>Marketing Analytics</li>
-                    <li>Risk and Decision Making</li>
-                </ul>
-            </div>
+            <div class="education-grid">
+                <div class="education-card">
+                    <h3 class="institution-name">University College London</h3>
+                    <p class="institution-location">London, United Kingdom</p>
+                    <h4 class="degree">Master's in Business Analytics</h4>
+                    <p class="duration">Sep 2024 – Sep 2025 (Expected)</p>
+                    <p class="gpa">GPA: Pending/100</p>
+                    <ul class="education-details">
+                        <li>Business Strategy</li>
+                        <li>Data Visualization</li>
+                        <li>Marketing Analytics</li>
+                        <li>Risk and Decision Making</li>
+                    </ul>
+                </div>
 
-            <div class="education-card">
-                <h3 class="institution-name">University of Toronto</h3>
-                <p class="institution-location">Toronto, Ontario</p>
-                <h4 class="degree">Bachelor's in Finance and Economy Specialist (Rotman Commerce)</h4>
-                <p class="duration">Sep 2020 – Jun 2024</p>
-                <p class="gpa">GPA: 3.45/4.00 (Distinction)</p>
-                <ul class="education-details">
-                    <li>Forecasting Econometrics</li>
-                    <li>Private Equity and Enterprise Finance</li>
-                    <li>Big Data Tools in Economics</li>
-                    <li>Machine Learning in Finance</li>
-                </ul>
+                <div class="education-card">
+                    <h3 class="institution-name">University of Toronto</h3>
+                    <p class="institution-location">Toronto, Ontario</p>
+                    <h4 class="degree">Bachelor's in Finance and Economy Specialist (Rotman Commerce)</h4>
+                    <p class="duration">Sep 2020 – Jun 2024</p>
+                    <p class="gpa">GPA: 3.45/4.00 (Distinction)</p>
+                    <ul class="education-details">
+                        <li>Forecasting Econometrics</li>
+                        <li>Private Equity and Enterprise Finance</li>
+                        <li>Big Data Tools in Economics</li>
+                        <li>Machine Learning in Finance</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
