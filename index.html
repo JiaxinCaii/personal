@@ -154,6 +154,120 @@
             color: var(--primary-color);
         }
 
+        /* About Section */
+        .about {
+            padding: 4rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .skills-section {
+            margin-top: 2rem;
+        }
+
+        .skills-category {
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-category h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Experience Section */
+        .experience-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .company-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        .job-title {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin: 0.5rem 0;
+        }
+
+        .job-details {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+        }
+
+        .experience-points {
+            list-style-type: none;
+            margin-bottom: 1rem;
+        }
+
+        .experience-points li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .experience-points li:before {
+            content: "•";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .tools-used {
+            font-style: italic;
+            color: var(--accent-color);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-item {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            background: rgba(100, 255, 218, 0.1);
+        }
+
+        .skill-item i {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
         /* Contact Section */
         .contact-grid {
             display: grid;
@@ -215,6 +329,14 @@
 
             .contact-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .experience-card {
+                margin: 1rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -293,6 +415,147 @@
                 <div class="cta-buttons">
                     <a href="#about" class="cta-button">Read More</a>
                     <a href="#contact" class="cta-button">Contact Me</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2 class="section-title">ABOUT</h2>
+            <div class="about-content">
+                <p>I am a Business Analytics Master's student at University College London, with a strong academic background in Finance and Economics from the University of Toronto, specializing in Data Science. I enjoy problem-solving, data analysis, and applying technical insights to drive decision-making. My professional experience spans credit risk analysis, financial auditing, and market research, where I have honed my skills in data-driven strategy and financial insights.</p>
+                
+                <p>With proficiency in tools like Python, Stata, Tableau, and Excel, I have worked on diverse projects such as credit risk modeling, hotel booking analysis, and socio-economic data studies. My passion lies in leveraging data analytics to solve complex real-world problems and create meaningful business impact.</p>
+
+                <div class="skills-section">
+                    <div class="skills-category">
+                        <h3>Technical Skills</h3>
+                        <p>Python, Stata, Bloomberg, Tableau, Capital IQ, Microsoft Excel</p>
+                    </div>
+                    <div class="skills-category">
+                        <h3>Soft Skills</h3>
+                        <p>Communication, Critical Thinking, Attention to Detail, Organizational Skills, Agile Thinking</p>
+                    </div>
+                </div>
+
+                <p>I am eager to contribute to challenging projects that combine my expertise in business analytics and data science to deliver impactful results while fostering personal and professional growth.</p>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2 class="section-title">EXPERIENCE</h2>
+            <div class="experience-card">
+                <h3 class="company-name">Poros Consulting</h3>
+                <h4 class="job-title">Credit Risk Analyst</h4>
+                <p class="job-details">July 2023 – October 2023 | Toronto, Canada</p>
+                <ul class="experience-points">
+                    <li>Risk analysis project - Conducted data analysis to identify and address high default ratios</li>
+                    <li>Credit analysis project - Simulated data to assess loan default risk with EDA, Customer Segmentation, and Feature Engineering</li>
+                    <li>Resort Hotel Booking project - Analyzed booking trends to inform data-driven hotel management decisions</li>
+                </ul>
+                <p class="tools-used">Tools: Python, Stata, Tableau</p>
+            </div>
+
+            <div class="experience-card">
+                <h3 class="company-name">Blue Lotus Capital</h3>
+                <h4 class="job-title">Research Assistant</h4>
+                <p class="job-details">2022 – 2023</p>
+                <ul class="experience-points">
+                    <li>Conducted financial analysis on Chinese companies</li>
+                    <li>Created standardized screening processes in the Wind platform</li>
+                    <li>Monitored a 50-stock portfolio and provided language support</li>
+                </ul>
+                <p class="tools-used">Tools: Bloomberg, Microsoft Excel</p>
+            </div>
+
+            <div class="experience-card">
+                <h3 class="company-name">Mazars</h3>
+                <h4 class="job-title">Audit Assistant</h4>
+                <p class="job-details">2021 – 2022</p>
+                <ul class="experience-points">
+                    <li>Conducted IPO audits and semiannual reports, ensuring GAAP compliance</li>
+                    <li>Extracted and verified significant transactions for financial audits</li>
+                </ul>
+                <p class="tools-used">Tools: Microsoft Excel, Capital IQ</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">SKILLS</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Languages and Databases</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fab fa-python"></i>
+                            <p>Python</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-html5"></i>
+                            <p>HTML5</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-css3-alt"></i>
+                            <p>CSS3</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <p>MySQL</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <p>PostgreSQL</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-terminal"></i>
+                            <p>Shell Scripting</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Libraries and Tools</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fas fa-chart-bar"></i>
+                            <p>NumPy</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-table"></i>
+                            <p>Pandas</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-camera"></i>
+                            <p>OpenCV</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-brain"></i>
+                            <p>scikit-learn</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-chart-line"></i>
+                            <p>Matplotlib</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-chart-pie"></i>
+                            <p>Tableau</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-calculator"></i>
+                            <p>Stata</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-desktop"></i>
+                            <p>Bloomberg</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-file-excel"></i>
+                            <p>Microsoft Excel</p>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-chart-bar"></i>
+                            <p>Capital IQ</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
