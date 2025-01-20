@@ -9,11 +9,11 @@
     <style>
         :root {
             --primary-color: #2a2a2a;
-            --secondary-color: #4a4a4a;
-            --accent-color: #64ffda;
-            --text-color: #ffffff;
-            --transition: all 0.3s ease;
-            --sidebar-width: 250px;
+            --secondary-color: #4a4a4a {
+            --accent-color: #64ffda {
+            --text-color: #ffffff {
+            --transition: all 0.3s ease {
+            --sidebar-width: 250px {
         }
 
         * {
@@ -375,6 +375,73 @@
             margin: 0.5rem 0;
         }
 
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .project-tools {
+            background: rgba(100, 255, 218, 0.1);
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tools h4 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .project-tools p {
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .project-link:hover {
+            background: var(--accent-color);
+            color: var(--primary-color);
+        }
+
         /* Responsive Design */
         @media screen and (max-width: 768px) {
             body {
@@ -561,6 +628,23 @@
             </div>
         </section>
 
+        <section id="projects">
+            <h2 class="section-title">PROJECTS</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3 class="project-title">Economic Disparity and Its Influence on Non-Violent and Violent Crime Patterns Across Chicago's Community Areas</h3>
+                    <p class="project-description">This project investigates the relationship between economic factors such as income disparity and unemployment on crime patterns in Chicago from 2014 to 2018. It uses data visualization, statistical analysis, and machine learning to uncover insights that can guide law enforcement strategies and policy-making.</p>
+                    <div class="project-tools">
+                        <h4>Tools Used:</h4>
+                        <p>Python, Pandas, Matplotlib, Seaborn, GeoPandas, Statsmodels, Sklearn</p>
+                    </div>
+                    <a href="ECO225_Project_Final_Jiaxin.pdf" class="project-link" target="_blank">
+                        View Full PDF
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <section id="skills">
             <h2 class="section-title">SKILLS</h2>
             <div class="skills-grid">
@@ -649,11 +733,12 @@
                 <p class="institution-location">London, United Kingdom</p>
                 <h4 class="degree">Master's in Business Analytics</h4>
                 <p class="duration">Sep 2024 – Sep 2025 (Expected)</p>
+                <p class="gpa">GPA: Pending/100</p>
                 <ul class="education-details">
-                    <li>Strategic Management</li>
-                    <li>Risk Management</li>
-                    <li>Machine Learning in Finance</li>
-                    <li>Big Data Tools in Economics</li>
+                    <li>Business Strategy</li>
+                    <li>Data Visualization</li>
+                    <li>Marketing Analytics</li>
+                    <li>Risk and Decision Making</li>
                 </ul>
             </div>
 
@@ -666,7 +751,7 @@
                 <ul class="education-details">
                     <li>Forecasting Econometrics</li>
                     <li>Private Equity and Enterprise Finance</li>
-                    <li>Applied Game Theory</li>
+                    <li>Big Data Tools in Economics</li>
                     <li>Machine Learning in Finance</li>
                 </ul>
             </div>
@@ -744,14 +829,13 @@
         document.querySelectorAll('section').forEach(section => {
             observer.observe(section);
         });
-
         // Typing animation
         const text = "A Business Analyst";
-        let index = 0;
-        let isDeleting = false;
-        let typingDelay = 100;
-        let deletingDelay = 50;
-        let pauseDelay = 2000;
+        const index = 0;
+        const isDeleting = false;
+        const typingDelay = 100;
+        const deletingDelay = 50;
+        const pauseDelay = 2000;
 
         function typeText() {
             const typingElement = document.querySelector('.typing-text');
