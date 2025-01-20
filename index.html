@@ -206,6 +206,16 @@
             color: var(--accent-color);
         }
 
+        .company-name a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .company-name a:hover {
+            opacity: 0.8;
+        }
+
         .job-title {
             font-size: 1.2rem;
             color: var(--text-color);
@@ -299,6 +309,72 @@
             border-radius: 50%;
         }
 
+        /* Education Section */
+        .education-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .institution-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .institution-location {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+        }
+
+        .degree {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .duration {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+
+        .education-details {
+            list-style-type: none;
+            margin-top: 1rem;
+        }
+
+        .education-details li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .education-details li:before {
+            content: "•";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .gpa {
+            color: var(--accent-color);
+            font-weight: 500;
+            margin: 0.5rem 0;
+        }
+
         /* Responsive Design */
         @media screen and (max-width: 768px) {
             body {
@@ -337,6 +413,11 @@
 
             .skills-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .duration {
+                position: static;
+                margin-bottom: 1rem;
             }
         }
     </style>
@@ -444,36 +525,37 @@
         <section id="experience">
             <h2 class="section-title">EXPERIENCE</h2>
             <div class="experience-card">
-                <h3 class="company-name">Poros Consulting</h3>
+                <h3 class="company-name"><a href="https://www.porosconsulting.com/" target="_blank">Poros Consulting</a></h3>
                 <h4 class="job-title">Credit Risk Analyst</h4>
                 <p class="job-details">July 2023 – October 2023 | Toronto, Canada</p>
                 <ul class="experience-points">
-                    <li>Risk analysis project - Conducted data analysis to identify and address high default ratios</li>
-                    <li>Credit analysis project - Simulated data to assess loan default risk with EDA, Customer Segmentation, and Feature Engineering</li>
-                    <li>Resort Hotel Booking project - Analyzed booking trends to inform data-driven hotel management decisions</li>
+                    <li>Risk analysis project - Conducted comprehensive data analysis to address high default ratios, adjusting credit limits based on housing categories.</li>
+                    <li>Credit analysis project - Utilized Exploratory Data Analysis (EDA), Customer Segmentation, and Feature Engineering to assess loan default risks for personal lines of credit.</li>
+                    <li>Resort Hotel Booking project - Analyzed resort hotel booking trends to enhance profitability and cancellation metrics, translating insights into actionable business strategies.</li>
                 </ul>
                 <p class="tools-used">Tools: Python, Stata, Tableau</p>
             </div>
 
             <div class="experience-card">
-                <h3 class="company-name">Blue Lotus Capital</h3>
+                <h3 class="company-name"><a href="https://www.blue-lotus.cn/index.php?l=en" target="_blank">Blue Lotus Capital</a></h3>
                 <h4 class="job-title">Research Assistant</h4>
                 <p class="job-details">2022 – 2023</p>
                 <ul class="experience-points">
-                    <li>Conducted financial analysis on Chinese companies</li>
-                    <li>Created standardized screening processes in the Wind platform</li>
-                    <li>Monitored a 50-stock portfolio and provided language support</li>
+                    <li>Conducted financial analysis on Chinese companies across multiple sectors, creating a standardized investment screening process using the Wind platform.</li>
+                    <li>Monitored a 50-stock portfolio and collaborated with financial analysts, providing multilingual document translation and critical market insights.</li>
+                    <li>Managed official accounts with over 10k accumulated readers by curating weekly updates and tracking specific firms.</li>
                 </ul>
                 <p class="tools-used">Tools: Bloomberg, Microsoft Excel</p>
             </div>
 
             <div class="experience-card">
-                <h3 class="company-name">Mazars</h3>
+                <h3 class="company-name"><a href="https://www.zszhcpa.cn/en/" target="_blank">Mazars</a></h3>
                 <h4 class="job-title">Audit Assistant</h4>
                 <p class="job-details">2021 – 2022</p>
                 <ul class="experience-points">
-                    <li>Conducted IPO audits and semiannual reports, ensuring GAAP compliance</li>
-                    <li>Extracted and verified significant transactions for financial audits</li>
+                    <li>Conducted audits for IPO operations (> $10M enterprise value) and semiannual reports (> $30M enterprise value), identifying financial discrepancies to enhance accuracy.</li>
+                    <li>Managed accounting tasks, ensuring compliance and processing over 50 GAAP-compliant manuscripts.</li>
+                    <li>Assessed financial reliability through transaction examinations, audit interviews, and detailed documentation.</li>
                 </ul>
                 <p class="tools-used">Tools: Microsoft Excel, Capital IQ</p>
             </div>
@@ -557,6 +639,36 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2 class="section-title">EDUCATION</h2>
+            <div class="education-card">
+                <h3 class="institution-name">University College London</h3>
+                <p class="institution-location">London, United Kingdom</p>
+                <h4 class="degree">Master's in Business Analytics</h4>
+                <p class="duration">Sep 2024 – Sep 2025 (Expected)</p>
+                <ul class="education-details">
+                    <li>Strategic Management</li>
+                    <li>Risk Management</li>
+                    <li>Machine Learning in Finance</li>
+                    <li>Big Data Tools in Economics</li>
+                </ul>
+            </div>
+
+            <div class="education-card">
+                <h3 class="institution-name">University of Toronto</h3>
+                <p class="institution-location">Toronto, Ontario</p>
+                <h4 class="degree">Bachelor's in Finance and Economy Specialist (Rotman Commerce)</h4>
+                <p class="duration">Sep 2020 – Jun 2024</p>
+                <p class="gpa">GPA: 3.45/4.00 (Distinction)</p>
+                <ul class="education-details">
+                    <li>Forecasting Econometrics</li>
+                    <li>Private Equity and Enterprise Finance</li>
+                    <li>Applied Game Theory</li>
+                    <li>Machine Learning in Finance</li>
+                </ul>
             </div>
         </section>
 
